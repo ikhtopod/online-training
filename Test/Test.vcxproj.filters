@@ -25,6 +25,9 @@
     <Filter Include="Test\HackerRank">
       <UniqueIdentifier>{db39a45e-9daf-4661-a0f2-32f0bc11567b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Test\CodeWars">
+      <UniqueIdentifier>{66e1997d-f8d0-4df9-b1af-ed26508d5316}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -41,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="rangeSumBST_Test.cpp">
       <Filter>Test\LeetCode</Filter>
+    </ClCompile>
+    <ClCompile Include="countSmileys_Test.cpp">
+      <Filter>Test\CodeWars</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
