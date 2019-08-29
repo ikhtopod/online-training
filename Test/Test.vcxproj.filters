@@ -48,6 +48,9 @@
     <ClCompile Include="countSmileys_Test.cpp">
       <Filter>Test\CodeWars</Filter>
     </ClCompile>
+    <ClCompile Include="SearchInRotatedSortedArray_Test.cpp">
+      <Filter>Test\LeetCode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
