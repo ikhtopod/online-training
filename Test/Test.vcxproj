@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Abbreviation_Test.cpp" />
     <ClCompile Include="almostIncreasingSequence_Test.cpp" />
     <ClCompile Include="countSmileys_Test.cpp" />
     <ClCompile Include="main.cpp" />

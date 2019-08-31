@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Abbreviation.cpp" />
     <ClCompile Include="reverseInteger.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Abbreviation.h" />
     <ClInclude Include="reverseInteger.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

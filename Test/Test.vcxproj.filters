@@ -51,6 +51,9 @@
     <ClCompile Include="SearchInRotatedSortedArray_Test.cpp">
       <Filter>Test\LeetCode</Filter>
     </ClCompile>
+    <ClCompile Include="Abbreviation_Test.cpp">
+      <Filter>Test\HackerRank</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
