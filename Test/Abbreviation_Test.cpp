@@ -61,7 +61,11 @@ TEST(HackerRank_abbreviation, Case_10) {
 }
 
 TEST(HackerRank_abbreviation, Case_11) {
-	EXPECT_EQ(abbreviation("baBacacaC", "BBCCC"), "BBC");
+	EXPECT_EQ(abbreviation("baBacacaC", "BBCCC"), "YES");
+}
+
+TEST(HackerRank_abbreviation, Case_12) {
+	EXPECT_EQ(abbreviation("bBcBbcC", "BBBC"), "YES");
 }
 
 TEST(HackerRank_abbreviation, BigString_YES) {

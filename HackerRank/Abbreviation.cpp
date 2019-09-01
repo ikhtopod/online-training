@@ -51,8 +51,32 @@ bool CanTransform(Table& table) {
 				p = Priority::Low;
 				pos = j;
 			} else if (table[i][j] == Priority::High) {
-				p = Priority::High;
-				pos = j;
+				if (p == Priority::None) {
+					p = Priority::High;
+					pos = j;
+				} else {
+					size_t countSameI = 0;
+					size_t countSameJ = 0;
+
+					for (size_t z = j + 1; z < table[i].size(); ++z) {
+						if (table[i][z] == Priority::High) {
+							++countSameI;
+						}
+					}
+
+					for (size_t z = i + 1; z < table.size(); ++z) {
+						if (table[z][j] == Priority::High) {
+							++countSameJ;
+						}
+					}
+
+					if (countSameI == countSameJ) {
+						p = Priority::High;
+						pos = j;
+					}
+
+				}
+
 				break;
 			}
 		}
