@@ -7,8 +7,8 @@ private:
 	Result() {}
 
 public:
-	static constexpr char YES[4] { "YES" };
-	static constexpr char NO[3] { "NO" };
+	inline static const char YES[4] { "YES" };
+	inline static const char NO[3] { "NO" };
 };
 
 enum class Priority : char {
@@ -58,19 +58,19 @@ bool CanTransform(Table& table) {
 					size_t countSameI = 0;
 					size_t countSameJ = 0;
 
-					for (size_t z = j + 1; z < table[i].size(); ++z) {
-						if (table[i][z] == Priority::High) {
+					for (size_t z = i; z < table.size(); ++z) {
+						if (table[z][j] == Priority::High) {
 							++countSameI;
 						}
 					}
 
-					for (size_t z = i + 1; z < table.size(); ++z) {
-						if (table[z][j] == Priority::High) {
+					for (size_t z = j; z < table[i].size(); ++z) {
+						if (table[i][z] == Priority::High) {
 							++countSameJ;
 						}
 					}
 
-					if (countSameI == countSameJ) {
+					if (countSameI <= countSameJ) {
 						p = Priority::High;
 						pos = j;
 					}
@@ -120,12 +120,5 @@ std::string abbreviation(std::string a, std::string b) {
 
 	return CanTransform(table) ? Result::YES : Result::NO;
 }
-
-/*for (TableItem& i : table) {
-		for (Priority& j : i) {
-			std::cout << static_cast<int>(j) << " ";
-		}
-		std::cout << std::endl;
-	}*/
 
 } // namespace insoLLLent::HackerRank
