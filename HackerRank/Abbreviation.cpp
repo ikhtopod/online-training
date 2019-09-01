@@ -23,31 +23,28 @@ private:
 		if (m_isAbbreviation || (text_e - text_b < pattern_e - pattern_b)) return;
 
 		if (pattern_e == pattern_b) {
-			if (std::all_of(text_b, text_e, ::islower)) {
-				m_isAbbreviation = true;
-			}
+			m_isAbbreviation = !std::any_of(text_b, text_e, ::isupper);
 		} else {
 			std::string memKey { text_b, text_e };
 			memKey.append("#");
 			memKey.append(pattern_b, pattern_e);
 			if (m_memoize.Has(memKey)) return;
 
-			auto textFirstChar = *text_b;
+			auto textFirst = *text_b;
 
 			text_b = std::next(text_b);
-			if (std::islower(textFirstChar))
+			if (std::islower(textFirst))
 				Init(text_b, text_e, pattern_b, pattern_e);
 
-			if (*pattern_b != std::toupper(textFirstChar)) return;
+			if (*pattern_b != std::toupper(textFirst)) return;
 
-			pattern_b = std::next(pattern_b);
-			Init(text_b, text_e, pattern_b, pattern_e);
+			Init(text_b, text_e, std::next(pattern_b), pattern_e);
 		}
 	}
 
 public:
 	explicit Abbreviation(const std::string& text, const std::string& pattern) {
-		Init(text.begin(), text.end(), pattern.begin(), pattern.end());
+		Init(text.cbegin(), text.cend(), pattern.cbegin(), pattern.cend());
 	}
 
 	std::string operator()() const {
