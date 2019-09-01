@@ -1,7 +1,9 @@
 #pragma once
 
+#include <unordered_set>
+#include <algorithm>
 #include <string>
-#include <vector>
+#include <cstdlib>
 
 namespace insoLLLent::HackerRank {
 
