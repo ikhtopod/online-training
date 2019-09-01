@@ -4,7 +4,7 @@ namespace insoLLLent::HackerRank {
 
 class Memoize final {
 private:
-	std::unordered_set<std::string> m_memoize {};
+	std::unordered_set<std::string> m_memoize;
 
 public:
 	bool Has(const std::string& key) {
@@ -18,32 +18,36 @@ private:
 	bool m_isAbbreviation = false;
 
 private:
-	void Init(std::string text, std::string pattern) {
-		if (m_isAbbreviation || (text.size() < pattern.size())) return;
+	template <typename It>
+	void Init(It text_b, It text_e, It pattern_b, It pattern_e) {
+		if (m_isAbbreviation || (text_e - text_b < pattern_e - pattern_b)) return;
 
-		if (pattern.empty()) {
-			if (std::all_of(text.begin(), text.end(), ::islower)) {
+		if (pattern_e == pattern_b) {
+			if (std::all_of(text_b, text_e, ::islower)) {
 				m_isAbbreviation = true;
 			}
 		} else {
-			if (m_memoize.Has(text + '#' + pattern)) return;
+			std::string memKey { text_b, text_e };
+			memKey.append("#");
+			memKey.append(pattern_b, pattern_e);
+			if (m_memoize.Has(memKey)) return;
 
-			char textFirstChar = text.front();
+			auto textFirstChar = *text_b;
 
-			text.erase(0, 1);
+			text_b = std::next(text_b);
 			if (std::islower(textFirstChar))
-				Init(text, pattern);
+				Init(text_b, text_e, pattern_b, pattern_e);
 
-			if (pattern.front() != std::toupper(textFirstChar)) return;
+			if (*pattern_b != std::toupper(textFirstChar)) return;
 
-			pattern.erase(0, 1);
-			Init(text, pattern);
+			pattern_b = std::next(pattern_b);
+			Init(text_b, text_e, pattern_b, pattern_e);
 		}
 	}
 
 public:
 	explicit Abbreviation(const std::string& text, const std::string& pattern) {
-		Init(text, pattern);
+		Init(text.begin(), text.end(), pattern.begin(), pattern.end());
 	}
 
 	std::string operator()() const {
