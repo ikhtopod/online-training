@@ -7,7 +7,7 @@ private:
 	std::unordered_set<std::string> m_memoize;
 
 public:
-	bool Has(const std::string& key) {
+	bool Has(std::string&& key) {
 		return !m_memoize.insert(key).second;
 	}
 };
@@ -28,15 +28,16 @@ private:
 			std::string memKey { text_b, text_e };
 			memKey.append("#");
 			memKey.append(pattern_b, pattern_e);
-			if (m_memoize.Has(memKey)) return;
+			if (m_memoize.Has(std::move(memKey))) return;
 
-			auto textFirst = *text_b;
+			bool isLowerFirstChar = std::islower(*text_b);
+			char upperFirstChar = std::toupper(*text_b);
 
 			text_b = std::next(text_b);
-			if (std::islower(textFirst))
+			if (isLowerFirstChar)
 				Init(text_b, text_e, pattern_b, pattern_e);
 
-			if (*pattern_b != std::toupper(textFirst)) return;
+			if (*pattern_b != upperFirstChar) return;
 
 			Init(text_b, text_e, std::next(pattern_b), pattern_e);
 		}
@@ -47,13 +48,13 @@ public:
 		Init(text.cbegin(), text.cend(), pattern.cbegin(), pattern.cend());
 	}
 
-	std::string operator()() const {
+	std::string Result() const {
 		return m_isAbbreviation ? "YES" : "NO";
 	}
 };
 
 std::string abbreviation(std::string text, std::string pattern) {
-	return Abbreviation { text, pattern }();
+	return Abbreviation { text, pattern }.Result();
 }
 
 } // namespace insoLLLent::HackerRank
