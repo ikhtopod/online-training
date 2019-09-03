@@ -135,6 +135,7 @@
     <ClCompile Include="Abbreviation_Test.cpp" />
     <ClCompile Include="almostIncreasingSequence_Test.cpp" />
     <ClCompile Include="countSmileys_Test.cpp" />
+    <ClCompile Include="firstBadVersion_Test.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="rangeSumBST_Test.cpp" />
     <ClCompile Include="reverseInteger_Test.cpp" />

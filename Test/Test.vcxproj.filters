@@ -54,6 +54,9 @@
     <ClCompile Include="Abbreviation_Test.cpp">
       <Filter>Test\HackerRank</Filter>
     </ClCompile>
+    <ClCompile Include="firstBadVersion_Test.cpp">
+      <Filter>Test\LeetCode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

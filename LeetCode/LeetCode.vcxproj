@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="firstBadVersion.cpp" />
     <ClCompile Include="rangeSumBST.cpp" />
     <ClCompile Include="SearchInRotatedSortedArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="firstBadVersion.h" />
     <ClInclude Include="rangeSumBST.h" />
     <ClInclude Include="SearchInRotatedSortedArray.h" />
   </ItemGroup>
