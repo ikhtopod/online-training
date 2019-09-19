@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="findPeakElement.cpp" />
     <ClCompile Include="firstBadVersion.cpp" />
     <ClCompile Include="rangeSumBST.cpp" />
     <ClCompile Include="SearchInRotatedSortedArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="findPeakElement.h" />
     <ClInclude Include="firstBadVersion.h" />
     <ClInclude Include="rangeSumBST.h" />
     <ClInclude Include="SearchInRotatedSortedArray.h" />

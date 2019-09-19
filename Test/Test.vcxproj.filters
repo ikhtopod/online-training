@@ -57,6 +57,9 @@
     <ClCompile Include="firstBadVersion_Test.cpp">
       <Filter>Test\LeetCode</Filter>
     </ClCompile>
+    <ClCompile Include="findPeakElement_Test.cpp">
+      <Filter>Test\LeetCode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
